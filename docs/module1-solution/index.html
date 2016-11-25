@@ -8,6 +8,7 @@
     <script src="app.js"></script>
           <style>
       .message { font-size: 1.3em; font-weight: bold; }
+      .msgAdv { font-size: 0.8em; color:grey; }
     </style>
   </head>
 <body ng-app="LunchCheck">
@@ -18,7 +19,9 @@
              <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
              class="form-control"
-             ng-model="dishes">
+             ng-model="dishes"
+             ng-style='inputStyle'>
+             <div class='msgAdv'> *Empty strings won't be counted </div>
          </div>
          <div class="form-group">
              <button class="btn btn-default"
@@ -26,7 +29,7 @@
                         Check If Too Much
               </button>
          </div>
-         <div class="form-group message">
+         <div class="form-group message" ng-style='msgStyle'>
             {{msgDishes}}
            <!-- Your message can go here. -->
          </div>
