@@ -1,0 +1,12 @@
+<div class="loader">
+</div>
+<div class="menuList">
+  <ul>
+    <li ng-repeat='item in listaMenus'>
+        <h3> {{ item.short_name }} </h3>
+        <p> {{ item.description }} </p>
+         <button ng-click="onRemove({index:$index})"> Don't want this one! </button>
+    </li>
+  </ul>
+  <div ng-if='listaMenus.length==0'> Nothing found </div>
+</div>
