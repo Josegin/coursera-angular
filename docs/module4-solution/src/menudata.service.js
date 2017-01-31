@@ -1,14 +1,13 @@
 (function () {
 'use strict';
 
-angular.module('menudata')
+angular.module('MenuData')
 .service('MenuDataService', MenuDataService);
 
 MenuDataService.$inject =['$q','$http'];
 function MenuDataService ($q, $http){
-  var menudata = this;
 
-  menudata.getAllCategories = function (){
+  this.getAllCategories = function (){
     var deferred = $q.defer();
 
     $http({
@@ -23,21 +22,25 @@ function MenuDataService ($q, $http){
      return deferred.promise;
   }
 
-  menudata.getItemsForCategory(category){
-    var deferred = $q.defer();
-
-    $http({
-           method: "GET",
-           url: "https://davids-restaurant.herokuapp.com/menu_items.json",
-           params: {'category':category}
-    }).then(function(result) {
- //      $filter('result')
-      var items = result.data.menu_items;
-      deferred.resolve(foundItems);
-     }).catch(function(err){
-             deferred.reject(err);
-     });//http
-     return deferred.promise;
+  this.test = function(){
+    return "test Service";
   }
-
+ //
+ //  menudata.getItemsForCategory = function(category){
+ //    var deferred = $q.defer();
+ //
+ //    $http({
+ //           method: "GET",
+ //           url: "https://davids-restaurant.herokuapp.com/menu_items.json",
+ //           params: {'category':category}
+ //    }).then(function(result) {
+ // //      $filter('result')
+ //      var items = result.data.menu_items;
+ //      deferred.resolve(foundItems);
+ //     }).catch(function(err){
+ //             deferred.reject(err);
+ //     });//http
+ //     return deferred.promise;
+ //  }
 }
+})();

@@ -1,12 +1,27 @@
 <!doctype html>
-<html lang='es'>
+<html lang='es' ng-app='MenuApp'>
   <head>
     <title> Menus </title>
-    <script src='angular.min.js'> </script>
-    <script src='angular-ui-router.min.js'> </script>
+    <script src='lib/angular.min.js'> </script>
+    <script src='lib/angular-ui-router.min.js'> </script>
+    <script src='src/data.module.js'> </script>
+    <script src='src/menuapp.module.js'> </script>
+
+
+        <script src='src/categories.controller.js'> </script>
+          <script src='src/menudata.service.js'> </script>
+        <script src='src/routes.js'> </script>
   </head>
-  <body ng-app="menuapp.module.js">
-    
+  <body >
+    <h1> TEST MENUS </h1>
+    <a ui-sref='home'> Inicio </a>
+    <a ui-sref='categories'> Categorias </a>
+
+    <div ui-view></div>
+    <div ng-controller='CategoriesController as c'>
+      {{ c.categories }} ¡
+    </div>
+
   </body>
 
 
