@@ -2,7 +2,13 @@
   'use strict'
 
   angular.module('MenuData')
-  .component('categories');
+  .component('myCategories', {
+      templateUrl: 'templates/categories.component.template.html',
+      bindings: {items:'<'}
+
+  });
+
+
 
 
 })();
