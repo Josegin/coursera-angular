@@ -23,10 +23,24 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   .state('categories', {
     url: '/categories',
     templateUrl: 'src/templates/categories.template.html',
-    controller: 'CategoriesController as CatCtrl',
-    resolve: {
-      categories:['MenuDataService', function (MenuDataService) {
-        return MenuDataService.getItems();
+     controller: 'CategoriesController as CatCtrl',
+     resolve: {
+
+      items:['MenuDataService', function (MenuDataService) {
+          //  return MenuDataService.getAllCategories();
+                return [{name:'pavo'}, {name:'anchoa'}];
+                // return MenuDataService.getAllCategories().then(function(response){
+                //                     return [{name:'pavo'}, {name:'anchoa'}];
+                //                     var items= new Array();
+                //                     response.forEach(function(i){
+                //                          items.push(i);
+                //                        })
+                //                        console.log('Categorias ok');
+                //                        return items;
+                //                     }).catch(function(error){
+                //                   return error;
+                //                    console.log('Categorias error'  + error);
+                //                 });
       }]
     }
   })

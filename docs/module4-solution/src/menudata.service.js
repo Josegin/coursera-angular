@@ -8,17 +8,20 @@ MenuDataService.$inject =['$q','$http'];
 function MenuDataService ($q, $http){
 
   this.getAllCategories = function (){
-    var deferred = $q.defer();
 
+  //  return [{name:'pavo'}, {name:'anchoa'}];
+    var deferred = $q.defer();
+    var items;
     $http({
            method: "GET",
            url: "https://davids-restaurant.herokuapp.com/categories.json"
     }).then(function(result) {
-       var items = result.data.menu_items;
+        items =  result.data;
        deferred.resolve(items);
      }).catch(function(err){
              deferred.reject(err);
      });//http
+
      return deferred.promise;
   }
 
