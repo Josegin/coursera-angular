@@ -1,3 +1,10 @@
 
 <h2> Categorias </h2>
-<my-categories items={{$items}}></my-categories>
+<div>
+
+<ul>
+  <li ng-repeat="item in CatCtrl.categories">
+    <a ui-sref='items({categoryName:item.short_name})' >  {{ item.name }} </a>
+  </li>
+</ul>
+</div>

@@ -7,11 +7,9 @@ angular.module('MenuData')
 
 CategoriesController.$inject = ['MenuDataService'];
 function CategoriesController(MenuDataService) {
-var c =this;
+  var c =this;
   c.categories = '';
-  this.test = 'antes init';
-
-  //  this.$onInit = function(){
+  this.$onInit = function(){
       var promise =MenuDataService.getAllCategories();
     //  console.log(promise);
       promise.then(function(response){
@@ -21,7 +19,7 @@ var c =this;
               console.log('Categorias error'  + error);
              });
 
-    // }
+    }
 
 }
 

@@ -1,0 +1,10 @@
+
+<h2>  {{ ItemCtrl.categoryName }} </h2>
+<div >
+
+<ul>
+  <li ng-repeat="item in ItemCtrl.items">
+      <a ui-ref='categories.items.item([itemid:item.id])'> {{ item.name }} </a>
+  </li>
+</ul>
+</div>
